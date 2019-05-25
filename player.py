@@ -4,11 +4,16 @@ from OBS import obsSceneTransition, obsSceneVLC
 
 
 def playerVLC():
-    playlist = 'playlist.pls'
+    playlist = 'playlistWithCommercials.pls'
     with open(playlist, 'r') as f:
         playlist=[i for line in f for i in line.split(',')]
         playlist = map(lambda s: s.strip(), playlist)
-    instance = vlc.Instance()
+    instance = vlc.Instance(
+            "--quiet " +
+            "--no-xlib " +
+            #"--vout=opengl " +
+            "--avcodec-threads=0"
+        )
     player = instance.media_player_new()
     playing = set([1,2,3,4])
     for i in playlist:
@@ -26,5 +31,5 @@ def playerVLC():
                 play = False
 
 
-
+playerVLC()
 

@@ -10,6 +10,8 @@ import sys
 
 dirname = os.path.dirname(__file__)
 my_path = os.path.abspath(os.path.dirname(__file__))
+absolute = os.path.abspath(os.getcwd())
+
 
 conn = mariadb.connect(host='192.168.150.251', user='videostream', password='mirko', database='songsDB')
 cursor = conn.cursor(buffered=True)
@@ -42,8 +44,9 @@ def dayClock():
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
+        absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a') as playlist:
-            playlist.write(fileLocation + '\n')
+            playlist.write(absoluteFileName + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -67,8 +70,9 @@ def morningClock():
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
+        absoluteFileName = os.path.join(absolute + fileLocation) 
         with open('playlist.pls', 'a') as playlist:
-            playlist.write(fileLocation + '\n')
+            playlist.write(absoluteFileName + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -93,8 +97,9 @@ def commercialsClock():
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
+        absoluteFileName = os.path.join(absolute + fileLocation)
         with open('commercials.pls', 'a') as commercialsList:
-            commercialsList.write(fileLocation + '\n')
+            commercialsList.write(absoluteFileName + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -131,18 +136,17 @@ def playlist():
     deleteVideoFiles(morning)
     deleteVideoFiles(day)
     deleteVideoFiles(commercials)
-    for _ in range(2):
+    for _ in range(1):
         morningClock()
-    for _ in range(4):
+    for _ in range(1):
         dayClock()
     commercialsClock()
     insertCommercials()
 
-playlist()
+
 
 # scheduler = BlockingScheduler()
 # scheduler.add_job(obsSceneVLC, trigger='cron', hour='03', minute='00')
 # scheduler.add_job(playlist, trigger='cron', hour='11', minute='25')
 # scheduler.start()
-
 
