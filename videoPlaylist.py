@@ -136,13 +136,12 @@ def playlist():
     deleteVideoFiles(morning)
     deleteVideoFiles(day)
     deleteVideoFiles(commercials)
-    for _ in range(1):
+    for _ in range(12):
         morningClock()
-    for _ in range(1):
+    for _ in range(24):
         dayClock()
     commercialsClock()
     insertCommercials()
-
 
 
 # scheduler = BlockingScheduler()
