@@ -1,7 +1,10 @@
 import os
+import pyinotify,subprocess
 
 
-def nowPlaying():
+
+
+def nowPlaying(ev):
     with open('mpvLog.txt', 'r') as f:
         lines = f.read().splitlines()
         if 'Playing:' in lines[-3]:
@@ -19,4 +22,9 @@ def nowPlaying():
         f.write(np)
 
 
-nowPlaying()
+
+
+wm = pyinotify.WatchManager()
+wm.add_watch('mpvLog.txt', pyinotify.IN_MODIFY, nowPlaying)
+notifier = pyinotify.Notifier(wm)
+notifier.loop()
