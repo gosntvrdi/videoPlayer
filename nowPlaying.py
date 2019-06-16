@@ -2,8 +2,6 @@ import os
 import pyinotify,subprocess
 
 
-
-
 def nowPlaying(ev):
     with open('mpvLog.txt', 'r') as f:
         lines = f.read().splitlines()
@@ -20,9 +18,6 @@ def nowPlaying(ev):
         print(np)
     with  open('nowPlaying.txt', 'w') as f:
         f.write(np)
-
-
-
 
 wm = pyinotify.WatchManager()
 wm.add_watch('mpvLog.txt', pyinotify.IN_MODIFY, nowPlaying)

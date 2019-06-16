@@ -5,7 +5,7 @@ import os
 
 
 def mpvPlayer():
-    call('mpv --quiet --gapless-audio --write-filename-in-watch-later-config  >> mpvLog.txt --playlist playlistWithCommercials.pls', shell=True)
+    call('mpv --quiet --cursor-autohide=1 --cache=yes --demuxer-readahead-secs=20 --gapless-audio --force-window-position --geometry=0%:100% --write-filename-in-watch-later-config  >> mpvLog.txt --playlist playlistWithCommercials.pls', shell=True)
 
 
 

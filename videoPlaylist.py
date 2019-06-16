@@ -1,19 +1,15 @@
 import mysql.connector as mariadb
 import ftplib
 import os
-#from apscheduler.schedulers.blocking import BlockingScheduler
-#from OBS import obsSceneVLC
 import sys
 
-#reload(sys)
-#sys.setdefaultencoding('utf-8')
 
 dirname = os.path.dirname(__file__)
 my_path = os.path.abspath(os.path.dirname(__file__))
 absolute = os.path.abspath(os.getcwd())
 
 
-conn = mariadb.connect(host='192.168.150.251', user='videostream', password='mirko', database='songsDB')
+conn = mariadb.connect(host='142.93.129.123', user='root', password='mihica.909', database='songsDB')
 cursor = conn.cursor(buffered=True)
 
 morning = dirname + '/video/morning'
@@ -31,9 +27,9 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 12")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 180")
     data = cursor.fetchall()
-    ftp = ftplib.FTP('192.168.150.251', 'videostream', 'yammatFM102.5')
+    ftp = ftplib.FTP('142.93.129.123', 'videostream', 'yammatFM102.5')
     ftp.cwd('/04-PUBLIC/LUKA/videoplayer/video/day')
     cwd = os.getcwd()
     currentPath = (os.path.relpath(cwd))
@@ -57,7 +53,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 12")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 180")
     data = cursor.fetchall()
     ftp = ftplib.FTP('192.168.150.251', 'videostream', 'yammatFM102.5')
     ftp.cwd('/04-PUBLIC/LUKA/videoplayer/video/morning')
@@ -136,16 +132,12 @@ def playlist():
     deleteVideoFiles(morning)
     deleteVideoFiles(day)
     deleteVideoFiles(commercials)
-    for _ in range(12):
-        morningClock()
-    for _ in range(24):
-        dayClock()
+    #for _ in range(12):
+    morningClock()
+    #for _ in range(24):
+    dayClock()
     commercialsClock()
     insertCommercials()
 
 
-# scheduler = BlockingScheduler()
-# scheduler.add_job(obsSceneVLC, trigger='cron', hour='03', minute='00')
-# scheduler.add_job(playlist, trigger='cron', hour='11', minute='25')
-# scheduler.start()
-
+playlist()
