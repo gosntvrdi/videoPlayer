@@ -1,15 +1,19 @@
 import mysql.connector as mariadb
 import ftplib
 import os
-import sys
+import pysftp
 
 
 dirname = os.path.dirname(__file__)
 my_path = os.path.abspath(os.path.dirname(__file__))
 absolute = os.path.abspath(os.getcwd())
 
+myHostname = "142.93.129.123"
+myUsername = "root"
+myPassword = "mihica.909"
+sftp = pysftp.Connection(host=myHostname, username=myUsername, password=myPassword)
 
-conn = mariadb.connect(host='142.93.129.123', user='root', password='mihica.909', database='songsDB')
+conn = mariadb.connect(host='142.93.129.123', port='8000', user='root', password='mihica.909', database='songsDB', auth_plugin='mysql_native_password')
 cursor = conn.cursor(buffered=True)
 
 morning = dirname + '/video/morning'
@@ -27,10 +31,9 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 180")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 50f")
     data = cursor.fetchall()
-    ftp = ftplib.FTP('142.93.129.123', 'videostream', 'yammatFM102.5')
-    ftp.cwd('/04-PUBLIC/LUKA/videoplayer/video/day')
+    sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
     currentPath = (os.path.relpath(cwd))
     os.chdir(day)
@@ -48,15 +51,14 @@ def dayClock():
             localFilename = (os.path.basename(fileLocation))
             os.chdir(day)
             try:
-                with open(localFilename, "wb") as file: ftp.retrbinary("RETR " + localFilename, file.write)
-            except ftplib.error_perm:
+                sftp.get(localFilename)
+            except IOError:
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 180")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 90")
     data = cursor.fetchall()
-    ftp = ftplib.FTP('192.168.150.251', 'videostream', 'yammatFM102.5')
-    ftp.cwd('/04-PUBLIC/LUKA/videoplayer/video/morning')
+    sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
     currentPath = (os.path.relpath(cwd))
     os.chdir(morning)
@@ -74,16 +76,15 @@ def morningClock():
             localFilename = (os.path.basename(fileLocation))
             os.chdir(morning)
             try:
-                with open(localFilename, "wb") as file: ftp.retrbinary("RETR " + localFilename, file.write)
-            except ftplib.error_perm:
+                sftp.get(localFilename)
+            except IOError:
                 pass
 
 
 def commercialsClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM commercialsDBFileLocation WHERE attribute = 'commercial' ORDER BY RAND() LIMIT 3")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM commercialsDBFileLocation WHERE attribute = 'commercial' ORDER BY RAND() LIMIT 2")
     data = cursor.fetchall()
-    ftp = ftplib.FTP('192.168.150.251', 'videostream', 'yammatFM102.5')
-    ftp.cwd('/04-PUBLIC/LUKA/videoplayer/video/commercials')
+    sftp.cwd('/media/videos/commercials')
     cwd = os.getcwd()
     currentPath = (os.path.relpath(cwd))
     os.chdir(commercials)
@@ -101,8 +102,8 @@ def commercialsClock():
             localFilename = (os.path.basename(fileLocation))
             os.chdir(commercials)
             try:
-                with open(localFilename, "wb") as file: ftp.retrbinary("RETR " + localFilename, file.write)
-            except ftplib.error_perm:
+                sftp.get(localFilename)
+            except IOError:
                 pass
 
 

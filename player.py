@@ -1,5 +1,5 @@
 import time
-from OBS import obsSceneTransition, obsSceneVLC
+#from OBS import obsSceneTransition, obsSceneVLC
 from subprocess import call
 import os
 
