@@ -1,7 +1,6 @@
-import mysql.connector as mariadb
 import os
 import pysftp
-
+import pymysql
 
 dirname = os.path.dirname(__file__)
 my_path = os.path.abspath(os.path.dirname(__file__))
@@ -14,8 +13,8 @@ cnopts = pysftp.CnOpts()
 cnopts.hostkeys = None
 sftp = pysftp.Connection(host=myHostname, username=myUsername, password=myPassword, cnopts=cnopts)
 
-conn = mariadb.connect(host='142.93.129.123', port='8000', user='root', password='mihica.909', database='songsDB', auth_plugin='mysql_native_password', connection_timeout=3)
-cursor = conn.cursor(buffered=True)
+conn = pymysql.connect(host='142.93.129.123', port=8000, user='root', password='mihica.909', database='songsDB')
+cursor = conn.cursor()
 
 morning = dirname + '/video/morning'
 day = dirname + '/video/day'
