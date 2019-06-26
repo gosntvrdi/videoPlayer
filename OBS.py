@@ -28,6 +28,12 @@ def obsSceneTransition():
     except KeyboardInterrupt:
         pass
 
+def obsSceneTransition2():
+    try:
+        client.call(requests.SetCurrentScene('obsSceneTransition2'))
+        time.sleep(2)
+    except KeyboardInterrupt:
+        pass
 
 def obsSceneVLC():
     try:
