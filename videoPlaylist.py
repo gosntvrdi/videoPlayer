@@ -1,5 +1,4 @@
 import mysql.connector as mariadb
-import ftplib
 import os
 import pysftp
 
@@ -11,7 +10,9 @@ absolute = os.path.abspath(os.getcwd())
 myHostname = "142.93.129.123"
 myUsername = "root"
 myPassword = "mihica.909"
-sftp = pysftp.Connection(host=myHostname, username=myUsername, password=myPassword)
+cnopts = pysftp.CnOpts()
+cnopts.hostkeys = None
+sftp = pysftp.Connection(host=myHostname, username=myUsername, password=myPassword, cnopts=cnopts)
 
 conn = mariadb.connect(host='142.93.129.123', port='8000', user='root', password='mihica.909', database='songsDB', auth_plugin='mysql_native_password')
 cursor = conn.cursor(buffered=True)
@@ -31,7 +32,7 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 50f")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 10")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -56,7 +57,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 90")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 10")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -118,7 +119,7 @@ def insertCommercials():
     os.chdir(dirname)
     playlistList = [word.strip('\n').split(',') for word in open("playlist.pls", 'r').readlines()]
     commercialsList = [word.strip('\n').split(',') for word in open("commercials.pls", 'r').readlines()]
-    playlistWithCommercials = [x for y in (playlistList[i:i + 6] + commercialsList * (i < len(playlistList) - 2) for i in range(0, len(playlistList), 3)) for x in y]
+    playlistWithCommercials = [x for y in (playlistList[i:i + 6] + commercialsList * (i < len(playlistList) - 6) for i in range(0, len(playlistList), 6)) for x in y]
     print(playlistWithCommercials)
     with open('playlistWithCommercials.pls', mode="w") as outfile:
         for s in playlistWithCommercials:
@@ -129,15 +130,15 @@ def insertCommercials():
 
 
 def playlist():
-    deletePlaylist()
-    deleteVideoFiles(morning)
-    deleteVideoFiles(day)
-    deleteVideoFiles(commercials)
+    #deletePlaylist()
+    #deleteVideoFiles(morning)
+    #deleteVideoFiles(day)
+    #deleteVideoFiles(commercials)
     #for _ in range(12):
-    morningClock()
+    #morningClock()
     #for _ in range(24):
-    dayClock()
-    commercialsClock()
+    #dayClock()
+    #commercialsClock()
     insertCommercials()
 
 
