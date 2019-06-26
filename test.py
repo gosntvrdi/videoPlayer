@@ -3,6 +3,7 @@ import vlc
 import time
 import subprocess
 
+
 dirname = os.path.dirname(__file__)
 
 def playerVLC():
@@ -14,14 +15,16 @@ def playerVLC():
     with open(playlist, 'r') as f:
         playlist=[i for line in f for i in line.split(',')]
         playlist = map(lambda s: s.strip(), playlist)
-    instance = vlc.Instance('--play-and-exit', '--input-repeat=-1', '--fullscreen', '--mouse-hide-timeout=0', '--quiet')
+    instance = vlc.Instance('--no-xlib', '--vout=opengl', '--avcodec-threads=0', '--input-repeat=-1', '--fullscreen', '--mouse-hide-timeout=0', '--quiet')
+    player = instance.media_player_new()
+
     for song in playlist:
         nowPlaying = (os.path.basename(song))
         nowPlaying = os.path.splitext(nowPlaying)[0]
         open('nowPlaying.txt', 'w').close()
         with open('nowPlaying.txt', 'a') as nowPlayingFile:
             nowPlayingFile.write(nowPlaying)
-        player = instance.media_player_new()
+
         media = instance.media_new(song)
         media.get_mrl()
         player.set_media(media)
@@ -37,6 +40,8 @@ def playerVLC():
         while True:
             state = player.get_state()
             if state not in playing:
+                import subprocess
+                subprocess.call("taskkill /f /im 'VLC(Direct3D11 output)'", shell=True)
                 break
             continue
 
