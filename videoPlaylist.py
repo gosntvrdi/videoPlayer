@@ -32,7 +32,7 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 10")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 30")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -57,7 +57,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 10")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 50")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -130,15 +130,15 @@ def insertCommercials():
 
 
 def playlist():
-    #deletePlaylist()
-    #deleteVideoFiles(morning)
-    #deleteVideoFiles(day)
-    #deleteVideoFiles(commercials)
+    deletePlaylist()
+    deleteVideoFiles(morning)
+    deleteVideoFiles(day)
+    deleteVideoFiles(commercials)
     #for _ in range(12):
-    #morningClock()
+    morningClock()
     #for _ in range(24):
-    #dayClock()
-    #commercialsClock()
+    dayClock()
+    commercialsClock()
     insertCommercials()
 
 
