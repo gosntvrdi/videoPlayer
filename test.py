@@ -16,6 +16,11 @@ def playerVLC():
         playlist = map(lambda s: s.strip(), playlist)
     instance = vlc.Instance('--play-and-exit', '--input-repeat=-1', '--fullscreen', '--mouse-hide-timeout=0')
     for song in playlist:
+        nowPlaying = (os.path.basename(song))
+        nowPlaying = os.path.splitext(nowPlaying)[0]
+        open('nowPlaying.txt', 'w').close()
+        with open('nowPlaying.txt', 'a') as nowPlayingFile:
+            nowPlayingFile.write(nowPlaying)
         obsSceneTransition()
         player = instance.media_player_new()
         media = instance.media_new(song)
