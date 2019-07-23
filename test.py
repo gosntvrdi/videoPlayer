@@ -40,8 +40,8 @@ def playerVLC():
         while True:
             state = player.get_state()
             if state not in playing:
-                import subprocess
-                subprocess.call("taskkill /f /im 'VLC(Direct3D11 output)'", shell=True)
+                #import subprocess
+                #subprocess.call("taskkill /f /im 'VLC(Direct3D11 output)'", shell=True)
                 break
             continue
 

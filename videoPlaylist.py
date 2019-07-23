@@ -31,7 +31,7 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 30")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 20")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -44,8 +44,8 @@ def dayClock():
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
-        with open('playlist.pls', 'a') as playlist:
-            playlist.write(absoluteFileName + '\n')
+        with open('playlist.pls', 'a', encoding='utf-8') as playlist:
+            playlist.write('<track><location>' + absoluteFileName + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -56,7 +56,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 50")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 10")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -69,8 +69,8 @@ def morningClock():
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation) 
-        with open('playlist.pls', 'a') as playlist:
-            playlist.write(absoluteFileName + '\n')
+        with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
+            playlist.write('<track><location>' + absoluteFileName + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -95,8 +95,8 @@ def commercialsClock():
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
-        with open('commercials.pls', 'a') as commercialsList:
-            commercialsList.write(absoluteFileName + '\n')
+        with open('commercials.pls', 'a', encoding='utf-8') as commercialsList:
+            commercialsList.write('<track><location>' + absoluteFileName + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -111,7 +111,7 @@ def deletePlaylist():
     os.chdir(dirname)
     open('playlist.pls', 'w').close()
     open('commercials.pls', 'w').close()
-    open('playlistWithCommercials.pls', 'w').close()
+    open('playlistWithCommercials.xspf', 'w').close()
 
 
 def insertCommercials():
@@ -120,10 +120,12 @@ def insertCommercials():
     commercialsList = [word.strip('\n').split(',') for word in open("commercials.pls", 'r').readlines()]
     playlistWithCommercials = [x for y in (playlistList[i:i + 6] + commercialsList * (i < len(playlistList) - 6) for i in range(0, len(playlistList), 6)) for x in y]
     print(playlistWithCommercials)
-    with open('playlistWithCommercials.pls', mode="w") as outfile:
+    with open('playlistWithCommercials.xspf', mode="w") as outfile:
+        outfile.write('<playlist version="1" xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/"><title>Playlist</title><trackList>' + '\n')
         for s in playlistWithCommercials:
             for line in s:
                 outfile.write(str(line) + '\n')
+        outfile.write('</trackList></playlist>')
 
 
 
