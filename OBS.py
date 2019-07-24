@@ -21,25 +21,19 @@ client.register(on_event)
 client.register(on_switch, events.SwitchScenes)
 
 
-def obsSceneTransition():
+def scene():
     try:
-        client.call(requests.SetCurrentScene('obsSceneTransition'))
+        client.call(requests.SetCurrentScene('Scene'))
         time.sleep(2)
     except KeyboardInterrupt:
         pass
 
-def obsSceneTransition2():
+def scene2():
     try:
-        client.call(requests.SetCurrentScene('obsSceneTransition2'))
+        client.call(requests.SetCurrentScene('scene2'))
         time.sleep(2)
     except KeyboardInterrupt:
         pass
 
-def obsSceneVLC():
-    try:
-        client.call(requests.SetCurrentScene('obsSceneVLC'))
-        time.sleep(2)
-    except KeyboardInterrupt:
-        pass
 
 

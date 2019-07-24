@@ -1,25 +1,29 @@
 import os
-import pyinotify,subprocess
+import time
+
+dirname = os.path.dirname(__file__)
+morningDir = dirname + '/video/morning'
+os.chdir(morningDir)
 
 
-def nowPlaying(ev):
-    with open('mpvLog.txt', 'r') as f:
-        lines = f.read().splitlines()
-        if 'Playing:' in lines[-3]:
-            np = lines[-3]
-        elif 'Playing:' in lines[-4]:
-            np = lines[-4]
-        elif 'Playing:' in lines[-9]:
-            np = lines[-9]
-        else:
-            np = lines[-5]
-        np = (np[9:])
-        np = (os.path.basename(np).split('.')[0])
-        print(np)
-    with  open('nowPlaying.txt', 'w') as f:
-        f.write(np)
+def np():
+    i=1
+    for file in os.listdir():
+        src=file
+        dst=file
+        try:
+            os.rename(src,dst)
+        except:
+            print(file + ' is being played in OBS')
+            os.chdir(dirname)
+            with  open('nowPlaying.txt', 'w') as f:
+                f.write(file)
+            os.chdir(morningDir)
+        i+=1
 
-wm = pyinotify.WatchManager()
-wm.add_watch('mpvLog.txt', pyinotify.IN_MODIFY, nowPlaying)
-notifier = pyinotify.Notifier(wm)
-notifier.loop()
+
+start_time = time.time()
+interval = 1
+for i in range(20):
+    time.sleep(start_time + i*interval - time.time())
+    np()
