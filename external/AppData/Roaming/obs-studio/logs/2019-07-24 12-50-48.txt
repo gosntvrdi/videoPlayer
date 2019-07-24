@@ -1,0 +1,148 @@
+12:50:48.898: CPU Name: Intel(R) Core(TM) i5-6440HQ CPU @ 2.60GHz
+12:50:48.898: CPU Speed: 2592MHz
+12:50:48.898: Physical Cores: 4, Logical Cores: 4
+12:50:48.898: Physical Memory: 16196MB Total, 7595MB Free
+12:50:48.898: Windows Version: 10.0 Build 17763 (revision: 615; 64-bit)
+12:50:48.898: Running as administrator: false
+12:50:48.898: Aero is Enabled (Aero is always on for windows 8 and above)
+12:50:48.898: Windows 10 Gaming Features:
+12:50:48.898: 	Game DVR: On
+12:50:48.900: Sec. Software Status:
+12:50:48.902: 	Avast Antivirus: enabled (AV)
+12:50:48.902: 	Windows Defender Antivirus: disabled (AV)
+12:50:48.903: 	Vatrozid za Windows: enabled (FW)
+12:50:48.903: 	Windows Defender Antivirus: disabled (ASW)
+12:50:48.903: 	Avast Antivirus: enabled (ASW)
+12:50:48.904: Current Date/Time: 2019-07-24, 12:50:48
+12:50:48.904: Browser Hardware Acceleration: true
+12:50:48.904: Portable mode: false
+12:50:49.383: OBS 23.2.1 (64-bit, windows)
+12:50:49.383: ---------------------------------
+12:50:49.384: ---------------------------------
+12:50:49.384: audio settings reset:
+12:50:49.384: 	samples per sec: 44100
+12:50:49.384: 	speakers:        2
+12:50:49.385: ---------------------------------
+12:50:49.385: Initializing D3D11...
+12:50:49.385: Available Video Adapters: 
+12:50:49.389: 	Adapter 0: AMD Radeon R7 M370
+12:50:49.389: 	  Dedicated VRAM: 2132004864
+12:50:49.389: 	  Shared VRAM:    4196741120
+12:50:49.389: 	  output 0: pos={0, 0}, size={1920, 1200}, attached=true
+12:50:49.389: 	  output 1: pos={1920, 0}, size={1920, 1080}, attached=true
+12:50:49.389: 	Adapter 1: Intel(R) HD Graphics 530
+12:50:49.389: 	  Dedicated VRAM: 134217728
+12:50:49.389: 	  Shared VRAM:    4196741120
+12:50:49.393: Loading up D3D11 on adapter AMD Radeon R7 M370 (0)
+12:50:49.417: D3D11 loaded successfully, feature level used: 45056
+12:50:50.657: ---------------------------------
+12:50:50.657: video settings reset:
+12:50:50.657: 	base resolution:   1920x1080
+12:50:50.657: 	output resolution: 1280x720
+12:50:50.657: 	downscale filter:  Bicubic
+12:50:50.657: 	fps:               30/1
+12:50:50.657: 	format:            NV12
+12:50:50.657: 	YUV mode:          601/Partial
+12:50:50.658: NV12 texture support enabled
+12:50:50.661: Audio monitoring device:
+12:50:50.661: 	name: Default
+12:50:50.661: 	id: default
+12:50:50.661: ---------------------------------
+12:50:50.669: [CoreAudio encoder]: CoreAudio AAC encoder not installed on the system or couldn't be loaded
+12:50:50.670: Failed to load 'en-US' text for module: 'decklink-ouput-ui.dll'
+12:50:51.262: [AMF] Version 2.4.2 loaded (Compiled: 1.4.7.0, Runtime: 1.4.10.0, Library: 1;4;10;0;18.40;201811080622;CL#1704252).
+12:50:51.471: [AMF] [Capability Manager] Testing Direct3D 11 Adapter 'AMD Radeon R7 M370 (VEN_1002/DEV_6600/SUB_6df1028/REV_0081)':
+12:50:51.471:   H264/AVC: Not Supported
+12:50:51.471:   H265/HEVC: Not Supported
+12:50:51.471: 
+12:50:51.668: [AMF] [Capability Manager] Testing Direct3D 9 Adapter 'AMD Radeon R7 M370 [\\.\DISPLAY1] (VEN_1002/DEV_6600/SUB_6df1028/REV_0081)':
+12:50:51.668:   H264/AVC: Not Supported
+12:50:51.668:   H265/HEVC: Not Supported
+12:50:51.668: 
+12:50:51.668: [AMF] [H264/AVC] Not supported by any GPU, disabling...
+12:50:51.668: [AMF] [H265/HEVC] Not supported by any GPU, disabling...
+12:50:51.792: Module '../../obs-plugins/64bit/libEGL.dll' not loaded
+12:50:51.794: [obs-browser]: Version 2.4.0
+12:50:51.823: [obs-websocket] you can haz websockets (version 4.5.0)
+12:50:51.823: [obs-websocket] qt version (compile-time): 5.10.1 ; qt version (run-time): 5.10.1
+12:50:51.831: [obs-websocket] server started successfully on TCP port 4444
+12:50:51.832: [obs-websocket] module loaded!
+12:50:51.838: Failed to load 'en-US' text for module: 'text-pango.dll'
+12:50:51.839: [pango] Failed to load fontconfig
+12:50:51.839: Failed to initialize module 'text-pango.dll'
+12:50:51.842: VLC found, VLC video source enabled
+12:50:51.844: LoadLibrary failed for '../../obs-plugins/64bit/WebSocketAPIPlugin.dll': The specified module could not be found.
+12:50:51.844:  (126)
+12:50:51.844: Module '../../obs-plugins/64bit/WebSocketAPIPlugin.dll' not loaded
+12:50:51.851: No blackmagic support
+12:50:51.858: ---------------------------------
+12:50:51.858:   Loaded Modules:
+12:50:51.858:     win-wasapi.dll
+12:50:51.858:     win-mf.dll
+12:50:51.858:     win-dshow.dll
+12:50:51.859:     win-decklink.dll
+12:50:51.859:     win-capture.dll
+12:50:51.859:     vlc-video.dll
+12:50:51.859:     text-pango.dll
+12:50:51.859:     text-freetype2.dll
+12:50:51.859:     rtmp-services.dll
+12:50:51.859:     obs-x264.dll
+12:50:51.859:     obs-websocket.dll
+12:50:51.859:     obs-vst.dll
+12:50:51.859:     obs-transitions.dll
+12:50:51.859:     obs-text.dll
+12:50:51.859:     obs-qsv11.dll
+12:50:51.859:     obs-outputs.dll
+12:50:51.859:     obs-filters.dll
+12:50:51.859:     obs-ffmpeg.dll
+12:50:51.859:     obs-browser.dll
+12:50:51.859:     image-source.dll
+12:50:51.859:     frontend-tools.dll
+12:50:51.859:     enc-amf.dll
+12:50:51.859:     decklink-ouput-ui.dll
+12:50:51.859:     coreaudio-encoder.dll
+12:50:51.859:     advanced-scene-switcher.dll
+12:50:51.859: ---------------------------------
+12:50:51.859: ==== Startup complete ===============================================
+12:50:51.861: All scene data cleared
+12:50:51.861: ------------------------------------------------
+12:50:51.938: WASAPI: Device 'Speakers / Headphones (Realtek Audio)' initialized
+12:50:51.975: adding 23 milliseconds of audio buffering, total audio buffering is now 23 milliseconds (source: Desktop Audio)
+12:50:51.975: 
+12:50:52.050: WASAPI: Device 'Microphone Array (Realtek Audio)' initialized
+12:50:52.269: adding 23 milliseconds of audio buffering, total audio buffering is now 46 milliseconds (source: Mic/Aux)
+12:50:52.269: 
+12:50:52.327: Device 'Microphone Array (Realtek Audio)' invalidated.  Retrying
+12:50:52.464: Device 'Speakers / Headphones (Realtek Audio)' invalidated.  Retrying
+12:50:52.598: [Media Source 'Media Source']: settings:
+12:50:52.598: 	input:                   C:/Users/lukab.SOONIK2/Downloads/Scene_14_2.avi
+12:50:52.598: 	input_format:            (null)
+12:50:52.598: 	speed:                   100
+12:50:52.598: 	is_looping:              no
+12:50:52.598: 	is_hw_decoding:          yes
+12:50:52.598: 	is_clear_on_media_end:   yes
+12:50:52.598: 	restart_on_activate:     yes
+12:50:52.598: 	close_when_inactive:     no
+12:50:52.601: gs_image_file_init_internal: Failed to load file ''
+12:50:52.609: gs_image_file_init_internal: Failed to load file ''
+12:50:52.641: Switched to scene 'obsSceneVLC'
+12:50:52.644: ------------------------------------------------
+12:50:52.644: Loaded scenes:
+12:50:52.644: - scene 'obsSceneVLC':
+12:50:52.644:     - source: 'VLC Video Source' (vlc_source)
+12:50:52.644: - scene 'obsSceneTransition':
+12:50:52.644:     - source: 'VLC Video Source' (vlc_source)
+12:50:52.644:     - source: 'Text (GDI+) 2' (text_gdiplus)
+12:50:52.644:         - filter: 'Apply LUT' (clut_filter)
+12:50:52.644:         - filter: 'Render Delay' (gpu_delay)
+12:50:52.644:         - filter: 'Image Mask/Blend' (mask_filter)
+12:50:52.644: - scene 'obsSceneTransition2':
+12:50:52.644:     - source: 'VLC Video Source' (vlc_source)
+12:50:52.644:     - source: 'Media Source' (ffmpeg_source)
+12:50:52.644:     - source: 'Text (GDI+) 2' (text_gdiplus)
+12:50:52.644:         - filter: 'Apply LUT' (clut_filter)
+12:50:52.645:         - filter: 'Render Delay' (gpu_delay)
+12:50:52.645:         - filter: 'Image Mask/Blend' (mask_filter)
+12:50:52.645: ------------------------------------------------
+12:50:55.413: WASAPI: Device 'Microphone Array (Realtek Audio)' initialized
+12:50:55.673: WASAPI: Device 'Speakers / Headphones (Realtek Audio)' initialized

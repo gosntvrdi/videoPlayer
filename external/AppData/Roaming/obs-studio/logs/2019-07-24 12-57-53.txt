@@ -1,0 +1,162 @@
+12:57:53.747: CPU Name: Intel(R) Core(TM) i5-6440HQ CPU @ 2.60GHz
+12:57:53.747: CPU Speed: 2592MHz
+12:57:53.748: Physical Cores: 4, Logical Cores: 4
+12:57:53.748: Physical Memory: 16196MB Total, 7536MB Free
+12:57:53.748: Windows Version: 10.0 Build 17763 (revision: 615; 64-bit)
+12:57:53.748: Running as administrator: false
+12:57:53.748: Aero is Enabled (Aero is always on for windows 8 and above)
+12:57:53.748: Windows 10 Gaming Features:
+12:57:53.748: 	Game DVR: On
+12:57:53.751: Sec. Software Status:
+12:57:53.752: 	Avast Antivirus: enabled (AV)
+12:57:53.753: 	Windows Defender Antivirus: disabled (AV)
+12:57:53.753: 	Vatrozid za Windows: enabled (FW)
+12:57:53.754: 	Windows Defender Antivirus: disabled (ASW)
+12:57:53.754: 	Avast Antivirus: enabled (ASW)
+12:57:53.754: Current Date/Time: 2019-07-24, 12:57:53
+12:57:53.754: Browser Hardware Acceleration: true
+12:57:53.754: Portable mode: false
+12:57:54.189: OBS 23.2.1 (64-bit, windows)
+12:57:54.189: ---------------------------------
+12:57:54.190: ---------------------------------
+12:57:54.190: audio settings reset:
+12:57:54.190: 	samples per sec: 44100
+12:57:54.190: 	speakers:        2
+12:57:54.191: ---------------------------------
+12:57:54.191: Initializing D3D11...
+12:57:54.191: Available Video Adapters: 
+12:57:54.195: 	Adapter 0: AMD Radeon R7 M370
+12:57:54.195: 	  Dedicated VRAM: 2132004864
+12:57:54.195: 	  Shared VRAM:    4196741120
+12:57:54.195: 	  output 0: pos={0, 0}, size={1920, 1200}, attached=true
+12:57:54.195: 	  output 1: pos={1920, 0}, size={1920, 1080}, attached=true
+12:57:54.195: 	Adapter 1: Intel(R) HD Graphics 530
+12:57:54.195: 	  Dedicated VRAM: 134217728
+12:57:54.195: 	  Shared VRAM:    4196741120
+12:57:54.199: Loading up D3D11 on adapter AMD Radeon R7 M370 (0)
+12:57:54.220: D3D11 loaded successfully, feature level used: 45056
+12:57:55.332: ---------------------------------
+12:57:55.332: video settings reset:
+12:57:55.332: 	base resolution:   1920x1080
+12:57:55.332: 	output resolution: 1280x720
+12:57:55.332: 	downscale filter:  Bicubic
+12:57:55.332: 	fps:               30/1
+12:57:55.332: 	format:            NV12
+12:57:55.332: 	YUV mode:          601/Partial
+12:57:55.332: NV12 texture support enabled
+12:57:55.336: Audio monitoring device:
+12:57:55.336: 	name: Default
+12:57:55.336: 	id: default
+12:57:55.336: ---------------------------------
+12:57:55.343: [CoreAudio encoder]: CoreAudio AAC encoder not installed on the system or couldn't be loaded
+12:57:55.343: Failed to load 'en-US' text for module: 'decklink-ouput-ui.dll'
+12:57:55.894: [AMF] Version 2.4.2 loaded (Compiled: 1.4.7.0, Runtime: 1.4.10.0, Library: 1;4;10;0;18.40;201811080622;CL#1704252).
+12:57:56.079: [AMF] [Capability Manager] Testing Direct3D 11 Adapter 'AMD Radeon R7 M370 (VEN_1002/DEV_6600/SUB_6df1028/REV_0081)':
+12:57:56.079:   H264/AVC: Not Supported
+12:57:56.079:   H265/HEVC: Not Supported
+12:57:56.079: 
+12:57:56.270: [AMF] [Capability Manager] Testing Direct3D 9 Adapter 'AMD Radeon R7 M370 [\\.\DISPLAY1] (VEN_1002/DEV_6600/SUB_6df1028/REV_0081)':
+12:57:56.270:   H264/AVC: Not Supported
+12:57:56.270:   H265/HEVC: Not Supported
+12:57:56.270: 
+12:57:56.270: [AMF] [H264/AVC] Not supported by any GPU, disabling...
+12:57:56.270: [AMF] [H265/HEVC] Not supported by any GPU, disabling...
+12:57:56.376: Module '../../obs-plugins/64bit/libEGL.dll' not loaded
+12:57:56.378: [obs-browser]: Version 2.4.0
+12:57:56.409: [obs-websocket] you can haz websockets (version 4.5.0)
+12:57:56.409: [obs-websocket] qt version (compile-time): 5.10.1 ; qt version (run-time): 5.10.1
+12:57:56.417: [obs-websocket] server started successfully on TCP port 4444
+12:57:56.418: [obs-websocket] module loaded!
+12:57:56.424: Failed to load 'en-US' text for module: 'text-pango.dll'
+12:57:56.425: [pango] Failed to load fontconfig
+12:57:56.425: Failed to initialize module 'text-pango.dll'
+12:57:56.429: VLC found, VLC video source enabled
+12:57:56.431: LoadLibrary failed for '../../obs-plugins/64bit/WebSocketAPIPlugin.dll': The specified module could not be found.
+12:57:56.431:  (126)
+12:57:56.431: Module '../../obs-plugins/64bit/WebSocketAPIPlugin.dll' not loaded
+12:57:56.438: No blackmagic support
+12:57:56.445: ---------------------------------
+12:57:56.445:   Loaded Modules:
+12:57:56.445:     win-wasapi.dll
+12:57:56.445:     win-mf.dll
+12:57:56.445:     win-dshow.dll
+12:57:56.445:     win-decklink.dll
+12:57:56.445:     win-capture.dll
+12:57:56.445:     vlc-video.dll
+12:57:56.445:     text-pango.dll
+12:57:56.445:     text-freetype2.dll
+12:57:56.445:     rtmp-services.dll
+12:57:56.445:     obs-x264.dll
+12:57:56.445:     obs-websocket.dll
+12:57:56.445:     obs-vst.dll
+12:57:56.445:     obs-transitions.dll
+12:57:56.445:     obs-text.dll
+12:57:56.445:     obs-qsv11.dll
+12:57:56.445:     obs-outputs.dll
+12:57:56.445:     obs-filters.dll
+12:57:56.445:     obs-ffmpeg.dll
+12:57:56.445:     obs-browser.dll
+12:57:56.445:     image-source.dll
+12:57:56.445:     frontend-tools.dll
+12:57:56.445:     enc-amf.dll
+12:57:56.445:     decklink-ouput-ui.dll
+12:57:56.445:     coreaudio-encoder.dll
+12:57:56.445:     advanced-scene-switcher.dll
+12:57:56.445: ---------------------------------
+12:57:56.445: ==== Startup complete ===============================================
+12:57:56.447: All scene data cleared
+12:57:56.447: ------------------------------------------------
+12:57:56.517: WASAPI: Device 'CABLE Input (VB-Audio Virtual Cable)' initialized
+12:57:56.603: WASAPI: Device 'Microphone Array (Realtek Audio)' initialized
+12:57:56.605: [Media Source 'Media Source']: settings:
+12:57:56.605: 	input:                   C:/Users/lukab.SOONIK2/Downloads/Scene_14_2.avi
+12:57:56.605: 	input_format:            (null)
+12:57:56.605: 	speed:                   100
+12:57:56.605: 	is_looping:              no
+12:57:56.605: 	is_hw_decoding:          yes
+12:57:56.605: 	is_clear_on_media_end:   yes
+12:57:56.605: 	restart_on_activate:     yes
+12:57:56.605: 	close_when_inactive:     no
+12:57:56.642: adding 46 milliseconds of audio buffering, total audio buffering is now 46 milliseconds (source: Mic/Aux)
+12:57:56.642: 
+12:57:56.940: gs_image_file_init_internal: Failed to load file ''
+12:57:56.948: gs_image_file_init_internal: Failed to load file ''
+12:57:56.974: Switched to scene 'obsSceneVLC'
+12:57:56.976: ------------------------------------------------
+12:57:56.976: Loaded scenes:
+12:57:56.976: - scene 'obsSceneVLC':
+12:57:56.976:     - source: 'VLC Video Source' (vlc_source)
+12:57:56.976: - scene 'obsSceneTransition':
+12:57:56.976:     - source: 'VLC Video Source' (vlc_source)
+12:57:56.976:     - source: 'Text (GDI+) 2' (text_gdiplus)
+12:57:56.976:         - filter: 'Apply LUT' (clut_filter)
+12:57:56.976:         - filter: 'Render Delay' (gpu_delay)
+12:57:56.976:         - filter: 'Image Mask/Blend' (mask_filter)
+12:57:56.976: - scene 'obsSceneTransition2':
+12:57:56.976:     - source: 'VLC Video Source' (vlc_source)
+12:57:56.976:     - source: 'Media Source' (ffmpeg_source)
+12:57:56.976:     - source: 'Text (GDI+) 2' (text_gdiplus)
+12:57:56.976:         - filter: 'Apply LUT' (clut_filter)
+12:57:56.976:         - filter: 'Render Delay' (gpu_delay)
+12:57:56.976:         - filter: 'Image Mask/Blend' (mask_filter)
+12:57:56.976: ------------------------------------------------
+12:59:00.031: WASAPI: Device 'CABLE Input (VB-Audio Virtual Cable)' Terminated
+12:59:00.249: WASAPI: Device 'Speakers / Headphones (Realtek Audio)' initialized
+12:59:00.256: Settings changed (audio)
+12:59:00.256: ------------------------------------------------
+12:59:20.302: User changed audio monitoring for source 'Desktop Audio' to: monitor only
+12:59:25.007: User changed audio monitoring for source 'Desktop Audio' to: none
+12:59:27.463: User changed audio monitoring for source 'VLC Video Source' to: monitor and output
+12:59:37.630: User changed audio monitoring for source 'VLC Video Source' to: none
+12:59:57.325: WASAPI: Device 'Microphone Array (Realtek Audio)' Terminated
+12:59:57.365: WASAPI: Device 'Stereo Mix (Realtek Audio)' initialized
+12:59:57.377: adding 23 milliseconds of audio buffering, total audio buffering is now 69 milliseconds (source: Mic/Aux)
+12:59:57.377: 
+13:00:01.855: User switched to scene 'obsSceneTransition'
+13:00:02.155: User switched to scene 'obsSceneVLC'
+13:00:03.092: User switched to scene 'obsSceneTransition'
+13:00:26.005: User switched to scene 'obsSceneVLC'
+13:01:25.724: Settings changed (audio)
+13:01:25.724: ------------------------------------------------
+13:01:25.739: WASAPI: Device 'Stereo Mix (Realtek Audio)' Terminated
+13:01:25.860: WASAPI: Device 'Speakers / Headphones (Realtek Audio)' Terminated

@@ -1,0 +1,141 @@
+13:07:46.682: CPU Name: Intel(R) Core(TM) i5-6440HQ CPU @ 2.60GHz
+13:07:46.682: CPU Speed: 2592MHz
+13:07:46.682: Physical Cores: 4, Logical Cores: 4
+13:07:46.682: Physical Memory: 16196MB Total, 7975MB Free
+13:07:46.682: Windows Version: 10.0 Build 17763 (revision: 615; 64-bit)
+13:07:46.682: Running as administrator: false
+13:07:46.683: Aero is Enabled (Aero is always on for windows 8 and above)
+13:07:46.683: Windows 10 Gaming Features:
+13:07:46.683: 	Game DVR: On
+13:07:46.685: Sec. Software Status:
+13:07:46.687: 	Avast Antivirus: enabled (AV)
+13:07:46.688: 	Windows Defender Antivirus: disabled (AV)
+13:07:46.690: 	Vatrozid za Windows: enabled (FW)
+13:07:46.690: 	Windows Defender Antivirus: disabled (ASW)
+13:07:46.690: 	Avast Antivirus: enabled (ASW)
+13:07:46.690: Current Date/Time: 2019-07-24, 13:07:46
+13:07:46.690: Browser Hardware Acceleration: true
+13:07:46.690: Portable mode: false
+13:07:47.133: OBS 23.2.1 (64-bit, windows)
+13:07:47.133: ---------------------------------
+13:07:47.134: ---------------------------------
+13:07:47.134: audio settings reset:
+13:07:47.134: 	samples per sec: 44100
+13:07:47.134: 	speakers:        2
+13:07:47.135: ---------------------------------
+13:07:47.135: Initializing D3D11...
+13:07:47.135: Available Video Adapters: 
+13:07:47.139: 	Adapter 0: AMD Radeon R7 M370
+13:07:47.139: 	  Dedicated VRAM: 2132004864
+13:07:47.139: 	  Shared VRAM:    4196741120
+13:07:47.139: 	  output 0: pos={0, 0}, size={1920, 1200}, attached=true
+13:07:47.140: 	  output 1: pos={1920, 0}, size={1920, 1080}, attached=true
+13:07:47.140: 	Adapter 1: Intel(R) HD Graphics 530
+13:07:47.140: 	  Dedicated VRAM: 134217728
+13:07:47.140: 	  Shared VRAM:    4196741120
+13:07:47.144: Loading up D3D11 on adapter AMD Radeon R7 M370 (0)
+13:07:47.167: D3D11 loaded successfully, feature level used: 45056
+13:07:48.281: ---------------------------------
+13:07:48.281: video settings reset:
+13:07:48.281: 	base resolution:   1920x1080
+13:07:48.281: 	output resolution: 1280x720
+13:07:48.281: 	downscale filter:  Bicubic
+13:07:48.281: 	fps:               30/1
+13:07:48.281: 	format:            NV12
+13:07:48.281: 	YUV mode:          601/Partial
+13:07:48.282: NV12 texture support enabled
+13:07:48.285: Audio monitoring device:
+13:07:48.285: 	name: CABLE Input (VB-Audio Virtual Cable)
+13:07:48.285: 	id: {0.0.0.00000000}.{6a256829-c262-4fee-b32b-d3676b95fa0a}
+13:07:48.285: ---------------------------------
+13:07:48.291: [CoreAudio encoder]: CoreAudio AAC encoder not installed on the system or couldn't be loaded
+13:07:48.292: Failed to load 'en-US' text for module: 'decklink-ouput-ui.dll'
+13:07:48.854: [AMF] Version 2.4.2 loaded (Compiled: 1.4.7.0, Runtime: 1.4.10.0, Library: 1;4;10;0;18.40;201811080622;CL#1704252).
+13:07:49.039: [AMF] [Capability Manager] Testing Direct3D 11 Adapter 'AMD Radeon R7 M370 (VEN_1002/DEV_6600/SUB_6df1028/REV_0081)':
+13:07:49.039:   H264/AVC: Not Supported
+13:07:49.039:   H265/HEVC: Not Supported
+13:07:49.039: 
+13:07:49.220: [AMF] [Capability Manager] Testing Direct3D 9 Adapter 'AMD Radeon R7 M370 [\\.\DISPLAY1] (VEN_1002/DEV_6600/SUB_6df1028/REV_0081)':
+13:07:49.220:   H264/AVC: Not Supported
+13:07:49.220:   H265/HEVC: Not Supported
+13:07:49.220: 
+13:07:49.220: [AMF] [H264/AVC] Not supported by any GPU, disabling...
+13:07:49.220: [AMF] [H265/HEVC] Not supported by any GPU, disabling...
+13:07:49.324: Module '../../obs-plugins/64bit/libEGL.dll' not loaded
+13:07:49.326: [obs-browser]: Version 2.4.0
+13:07:49.356: [obs-websocket] you can haz websockets (version 4.5.0)
+13:07:49.356: [obs-websocket] qt version (compile-time): 5.10.1 ; qt version (run-time): 5.10.1
+13:07:49.365: [obs-websocket] server started successfully on TCP port 4444
+13:07:49.366: [obs-websocket] module loaded!
+13:07:49.372: Failed to load 'en-US' text for module: 'text-pango.dll'
+13:07:49.372: [pango] Failed to load fontconfig
+13:07:49.372: Failed to initialize module 'text-pango.dll'
+13:07:49.376: VLC found, VLC video source enabled
+13:07:49.377: LoadLibrary failed for '../../obs-plugins/64bit/WebSocketAPIPlugin.dll': The specified module could not be found.
+13:07:49.377:  (126)
+13:07:49.378: Module '../../obs-plugins/64bit/WebSocketAPIPlugin.dll' not loaded
+13:07:49.385: No blackmagic support
+13:07:49.391: ---------------------------------
+13:07:49.391:   Loaded Modules:
+13:07:49.391:     win-wasapi.dll
+13:07:49.391:     win-mf.dll
+13:07:49.391:     win-dshow.dll
+13:07:49.391:     win-decklink.dll
+13:07:49.391:     win-capture.dll
+13:07:49.391:     vlc-video.dll
+13:07:49.391:     text-pango.dll
+13:07:49.391:     text-freetype2.dll
+13:07:49.391:     rtmp-services.dll
+13:07:49.391:     obs-x264.dll
+13:07:49.391:     obs-websocket.dll
+13:07:49.391:     obs-vst.dll
+13:07:49.391:     obs-transitions.dll
+13:07:49.391:     obs-text.dll
+13:07:49.391:     obs-qsv11.dll
+13:07:49.391:     obs-outputs.dll
+13:07:49.391:     obs-filters.dll
+13:07:49.391:     obs-ffmpeg.dll
+13:07:49.391:     obs-browser.dll
+13:07:49.391:     image-source.dll
+13:07:49.391:     frontend-tools.dll
+13:07:49.391:     enc-amf.dll
+13:07:49.391:     decklink-ouput-ui.dll
+13:07:49.391:     coreaudio-encoder.dll
+13:07:49.391:     advanced-scene-switcher.dll
+13:07:49.391: ---------------------------------
+13:07:49.391: ==== Startup complete ===============================================
+13:07:49.393: All scene data cleared
+13:07:49.393: ------------------------------------------------
+13:07:49.420: [Media Source 'Media Source']: settings:
+13:07:49.420: 	input:                   C:/Users/lukab.SOONIK2/Downloads/Scene_14_2.avi
+13:07:49.420: 	input_format:            (null)
+13:07:49.420: 	speed:                   100
+13:07:49.420: 	is_looping:              no
+13:07:49.420: 	is_hw_decoding:          yes
+13:07:49.420: 	is_clear_on_media_end:   yes
+13:07:49.420: 	restart_on_activate:     yes
+13:07:49.420: 	close_when_inactive:     no
+13:07:49.801: gs_image_file_init_internal: Failed to load file ''
+13:07:49.809: gs_image_file_init_internal: Failed to load file ''
+13:07:49.834: Switched to scene 'obsSceneVLC'
+13:07:49.837: ------------------------------------------------
+13:07:49.837: Loaded scenes:
+13:07:49.837: - scene 'obsSceneVLC':
+13:07:49.837:     - source: 'VLC Video Source' (vlc_source)
+13:07:49.837:         - monitoring: monitor and output
+13:07:49.837: - scene 'obsSceneTransition':
+13:07:49.837:     - source: 'VLC Video Source' (vlc_source)
+13:07:49.837:         - monitoring: monitor and output
+13:07:49.837:     - source: 'Text (GDI+) 2' (text_gdiplus)
+13:07:49.837:         - filter: 'Apply LUT' (clut_filter)
+13:07:49.837:         - filter: 'Render Delay' (gpu_delay)
+13:07:49.837:         - filter: 'Image Mask/Blend' (mask_filter)
+13:07:49.837: - scene 'obsSceneTransition2':
+13:07:49.837:     - source: 'VLC Video Source' (vlc_source)
+13:07:49.837:         - monitoring: monitor and output
+13:07:49.837:     - source: 'Media Source' (ffmpeg_source)
+13:07:49.837:     - source: 'Text (GDI+) 2' (text_gdiplus)
+13:07:49.837:         - filter: 'Apply LUT' (clut_filter)
+13:07:49.837:         - filter: 'Render Delay' (gpu_delay)
+13:07:49.837:         - filter: 'Image Mask/Blend' (mask_filter)
+13:07:49.837: ------------------------------------------------

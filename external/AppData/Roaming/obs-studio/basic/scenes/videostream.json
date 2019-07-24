@@ -1,62 +1,6 @@
 {
-    "AuxAudioDevice1": {
-        "balance": 0.5,
-        "deinterlace_field_order": 0,
-        "deinterlace_mode": 0,
-        "enabled": true,
-        "flags": 0,
-        "hotkeys": {
-            "libobs.mute": [],
-            "libobs.push-to-mute": [],
-            "libobs.push-to-talk": [],
-            "libobs.unmute": []
-        },
-        "id": "wasapi_input_capture",
-        "mixers": 255,
-        "monitoring_type": 0,
-        "muted": true,
-        "name": "Mic/Aux",
-        "private_settings": {},
-        "push-to-mute": false,
-        "push-to-mute-delay": 0,
-        "push-to-talk": false,
-        "push-to-talk-delay": 0,
-        "settings": {
-            "device_id": "default"
-        },
-        "sync": 0,
-        "volume": 1.0
-    },
-    "DesktopAudioDevice1": {
-        "balance": 0.5,
-        "deinterlace_field_order": 0,
-        "deinterlace_mode": 0,
-        "enabled": true,
-        "flags": 0,
-        "hotkeys": {
-            "libobs.mute": [],
-            "libobs.push-to-mute": [],
-            "libobs.push-to-talk": [],
-            "libobs.unmute": []
-        },
-        "id": "wasapi_output_capture",
-        "mixers": 255,
-        "monitoring_type": 0,
-        "muted": true,
-        "name": "Desktop Audio",
-        "private_settings": {},
-        "push-to-mute": false,
-        "push-to-mute-delay": 0,
-        "push-to-talk": false,
-        "push-to-talk-delay": 0,
-        "settings": {
-            "device_id": "default"
-        },
-        "sync": 0,
-        "volume": 1.0
-    },
-    "current_program_scene": "obsSceneTransition2",
-    "current_scene": "obsSceneTransition2",
+    "current_program_scene": "obsSceneVLC",
+    "current_scene": "obsSceneVLC",
     "current_transition": "Fade",
     "groups": [],
     "modules": {
@@ -119,7 +63,7 @@
         },
         "scripts-tool": [
             {
-                "path": "C:/Users/lukab.SOONIK2/PycharmProjects/videoPlayer/player.py",
+                "path": "C:/Users/lukab.SOONIK2/PycharmProjects/videoPlayer_old/piraCZ.py",
                 "settings": {}
             }
         ]
@@ -165,26 +109,24 @@
             "flags": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.hide_scene_item.Game Capture": [],
-                "libobs.hide_scene_item.Media Source": [],
-                "libobs.hide_scene_item.Text (GDI+) 2": [],
-                "libobs.show_scene_item.Game Capture": [],
-                "libobs.show_scene_item.Media Source": [],
-                "libobs.show_scene_item.Text (GDI+) 2": []
+                "libobs.hide_scene_item.VLC Video Source": [],
+                "libobs.show_scene_item.VLC Video Source": []
             },
             "id": "scene",
             "mixers": 0,
             "monitoring_type": 0,
             "muted": false,
-            "name": "obsSceneTransition2",
-            "private_settings": {},
+            "name": "obsSceneVLC",
+            "private_settings": {
+                "transition": ""
+            },
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
                 "custom_size": false,
-                "id_counter": 3,
+                "id_counter": 16,
                 "items": [
                     {
                         "align": 5,
@@ -199,9 +141,9 @@
                         "crop_right": 0,
                         "crop_top": 0,
                         "group_item_backup": false,
-                        "id": 1,
+                        "id": 16,
                         "locked": false,
-                        "name": "Game Capture",
+                        "name": "VLC Video Source",
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
@@ -214,23 +156,55 @@
                         },
                         "scale_filter": "disable",
                         "visible": true
-                    },
+                    }
+                ]
+            },
+            "sync": 0,
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.hide_scene_item.Text (GDI+) 2": [],
+                "libobs.hide_scene_item.VLC Video Source": [],
+                "libobs.show_scene_item.Text (GDI+) 2": [],
+                "libobs.show_scene_item.VLC Video Source": []
+            },
+            "id": "scene",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "obsSceneTransition",
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "custom_size": false,
+                "id_counter": 6,
+                "items": [
                     {
                         "align": 5,
                         "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 1920.0,
+                            "y": 1080.0
                         },
                         "bounds_align": 0,
-                        "bounds_type": 0,
+                        "bounds_type": 2,
                         "crop_bottom": 0,
                         "crop_left": 0,
                         "crop_right": 0,
                         "crop_top": 0,
                         "group_item_backup": false,
-                        "id": 2,
+                        "id": 6,
                         "locked": false,
-                        "name": "Media Source",
+                        "name": "VLC Video Source",
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
@@ -271,38 +245,9 @@
                             "y": 2.5555555820465088
                         },
                         "scale_filter": "disable",
-                        "visible": true
+                        "visible": false
                     }
                 ]
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "balance": 0.5,
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "hotkey_start": [],
-                "hotkey_stop": []
-            },
-            "id": "game_capture",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Game Capture",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "allow_transparency": false,
-                "capture_cursor": false,
-                "capture_mode": "window",
-                "window": "VLC (Direct3D11 output):VLC video main 08038600:python.exe"
             },
             "sync": 0,
             "volume": 1.0
@@ -412,46 +357,19 @@
             "enabled": true,
             "flags": 0,
             "hotkeys": {
-                "MediaSource.Restart": [],
-                "libobs.mute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": [],
-                "libobs.unmute": []
-            },
-            "id": "ffmpeg_source",
-            "mixers": 255,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Media Source",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "local_file": "C:/Users/lukab.SOONIK2/Downloads/Title 06_3.avi"
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "balance": 0.5,
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.hide_scene_item.Game Capture": [],
+                "libobs.hide_scene_item.Media Source": [],
                 "libobs.hide_scene_item.Text (GDI+) 2": [],
-                "libobs.show_scene_item.Game Capture": [],
-                "libobs.show_scene_item.Text (GDI+) 2": []
+                "libobs.hide_scene_item.VLC Video Source": [],
+                "libobs.show_scene_item.Media Source": [],
+                "libobs.show_scene_item.Text (GDI+) 2": [],
+                "libobs.show_scene_item.VLC Video Source": []
             },
             "id": "scene",
             "mixers": 0,
             "monitoring_type": 0,
             "muted": false,
-            "name": "obsSceneTransition",
+            "name": "obsSceneTransition2",
             "private_settings": {},
             "push-to-mute": false,
             "push-to-mute-delay": 0,
@@ -459,8 +377,37 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "custom_size": false,
-                "id_counter": 4,
+                "id_counter": 6,
                 "items": [
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 2,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 6,
+                        "locked": false,
+                        "name": "VLC Video Source",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    },
                     {
                         "align": 5,
                         "bounds": {
@@ -476,10 +423,10 @@
                         "group_item_backup": false,
                         "id": 4,
                         "locked": false,
-                        "name": "Game Capture",
+                        "name": "Media Source",
                         "pos": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": -227.0,
+                            "y": 95.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
@@ -507,8 +454,8 @@
                         "locked": false,
                         "name": "Text (GDI+) 2",
                         "pos": {
-                            "x": 33.0,
-                            "y": 919.0
+                            "x": 170.0,
+                            "y": 911.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
@@ -531,56 +478,65 @@
             "enabled": true,
             "flags": 0,
             "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.hide_scene_item.Game Capture": [],
-                "libobs.show_scene_item.Game Capture": []
+                "MediaSource.Restart": [],
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
             },
-            "id": "scene",
-            "mixers": 0,
+            "id": "ffmpeg_source",
+            "mixers": 255,
             "monitoring_type": 0,
             "muted": false,
-            "name": "obsSceneVLC",
-            "private_settings": {
-                "transition": ""
-            },
+            "name": "Media Source",
+            "private_settings": {},
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
-                "custom_size": false,
-                "id_counter": 14,
-                "items": [
+                "local_file": "C:/Users/lukab.SOONIK2/Downloads/Scene_14_2.avi"
+            },
+            "sync": 0,
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "VLCSource.PlayPause": [],
+                "VLCSource.PlaylistNext": [],
+                "VLCSource.PlaylistPrev": [],
+                "VLCSource.Restart": [],
+                "VLCSource.Stop": [],
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
+            },
+            "id": "vlc_source",
+            "mixers": 255,
+            "monitoring_type": 2,
+            "muted": false,
+            "name": "VLC Video Source",
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "playback_behavior": "always_play",
+                "playlist": [
                     {
-                        "align": 5,
-                        "bounds": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 2,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "group_item_backup": false,
-                        "id": 12,
-                        "locked": false,
-                        "name": "Game Capture",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
+                        "hidden": false,
+                        "selected": true,
+                        "value": "C:/Users/lukab.SOONIK2/PycharmProjects/videoPlayer_old/playlistWithCommercials.xspf"
                     }
-                ]
+                ],
+                "subtitle_enable": true
             },
             "sync": 0,
             "volume": 1.0
