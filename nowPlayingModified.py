@@ -57,7 +57,7 @@ class ChangeHandler(PatternMatchingEventHandler):
 
 
 
-    def on_modified(self, event):
+    def on_any_event(self, event):
         scene2()
         time.sleep(6)
         scene()

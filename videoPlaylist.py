@@ -31,7 +31,7 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 20")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 2")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -56,7 +56,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 10")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 2")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -111,8 +111,10 @@ def deletePlaylist():
     os.chdir(dirname)
     open('playlist.pls', 'w').close()
     open('commercials.pls', 'w').close()
-    open('playlistWithCommercials.xspf', 'w').close()
-
+    try:
+        os.remove('playlistWithCommercials.xspf')
+    except FileNotFoundError:
+        pass
 
 def insertCommercials():
     os.chdir(dirname)
