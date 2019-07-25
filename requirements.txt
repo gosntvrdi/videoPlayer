@@ -10,3 +10,4 @@ tzlocal==1.5.1
 websocket-client==0.56.0
 pymysql==0.9.3
 pysftp==0.2.9
+watchdog==0.9.0
