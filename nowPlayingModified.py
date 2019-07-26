@@ -16,6 +16,8 @@ class MyEventHandler(pyinotify.ProcessEvent):
             pass
         elif np == 'commercials':
             pass
+        elif np == 'video':
+            pass
         else:
             with  open('nowPlaying.txt', 'w') as f:
                 f.write(np)
