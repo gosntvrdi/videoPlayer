@@ -23,7 +23,7 @@ client.register(on_switch, events.SwitchScenes)
 
 def scene():
     try:
-        client.call(requests.SetCurrentScene('Scene'))
+        client.call(requests.SetCurrentScene('scene'))
         time.sleep(2)
     except KeyboardInterrupt:
         pass
