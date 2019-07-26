@@ -1,4 +1,4 @@
-<track><location>C:\Users\lukab.SOONIK2\PycharmProjects\videoPlayer_old/video/morning/JOHN LEGEND - USED TO LOVE U</location></track>
-<track><location>C:\Users\lukab.SOONIK2\PycharmProjects\videoPlayer_old/video/morning/Snoop Dogg ft Pharrell Williams - Let's get blown</location></track>
-<track><location>C:\Users\lukab.SOONIK2\PycharmProjects\videoPlayer_old/video/day/Palace - Break The Silence</location></track>
-<track><location>C:\Users\lukab.SOONIK2\PycharmProjects\videoPlayer_old/video/day/Arrested Development - Tennessee</location></track>
+<track><location>/home/videostream/PycharmProjects/videoPlayer_old/video/morning/Talking Heads -  And She Was</location></track>
+<track><location>/home/videostream/PycharmProjects/videoPlayer_old/video/morning/Lone Justice - Shelter</location></track>
+<track><location>/home/videostream/PycharmProjects/videoPlayer_old/video/day/Jet - Are You Gonna Be My Girl</location></track>
+<track><location>/home/videostream/PycharmProjects/videoPlayer_old/video/day/The Black Keys - Fever</location></track>
