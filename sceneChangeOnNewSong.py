@@ -8,6 +8,6 @@ def sceneChange(ev):
     scene()
 
 wm = pyinotify.WatchManager()
-wm.add_watch('nowPlaying.txt', pyinotify.IN_MODIFY, sceneChange)
+wm.add_watch('nowPlaying.txt', pyinotify.IN_CLOSE_WRITE, sceneChange)
 notifier = pyinotify.Notifier(wm)
 notifier.loop()
