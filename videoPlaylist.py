@@ -1,4 +1,6 @@
 import os
+import signal
+import subprocess
 import pysftp
 import pymysql
 
@@ -31,7 +33,7 @@ def deleteVideoFiles(folder):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 2")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 20")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -56,7 +58,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 2")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 20")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -130,9 +132,15 @@ def insertCommercials():
         outfile.write('</trackList></playlist>')
 
 
+def killOBS():
+    os.system('ps -C obs -o pid=|xargs kill -9')
 
+
+def runOBS():
+    subprocess.call('obs')
 
 def playlist():
+    killOBS()
     deletePlaylist()
     deleteVideoFiles(morning)
     deleteVideoFiles(day)
@@ -143,6 +151,7 @@ def playlist():
     dayClock()
     commercialsClock()
     insertCommercials()
+    runOBS()
 
 
 playlist()
