@@ -3,8 +3,10 @@ import pyinotify
 import time
 
 def sceneChange(ev):
-    scene2()
-
+    try:
+        scene2()
+    except:
+        obswebsocket.exceptions.ConnectionFailure
 
 
 wm = pyinotify.WatchManager()
