@@ -1,6 +1,10 @@
 import os
+import signal
+import subprocess
 import pysftp
 import pymysql
+import time
+
 
 dirname = os.path.dirname(__file__)
 my_path = os.path.abspath(os.path.dirname(__file__))
@@ -16,18 +20,11 @@ sftp = pysftp.Connection(host=myHostname, username=myUsername, password=myPasswo
 conn = pymysql.connect(host='142.93.129.123', port=8000, user='root', password='mihica.909', database='songsDB')
 cursor = conn.cursor()
 
+
 morning = dirname + '/video/morning'
 day = dirname + '/video/day'
 commercials = dirname + '/video/commercials'
 
-def deleteVideoFiles(folder):
-    for the_file in os.listdir(folder):
-        file_path = os.path.join(folder, the_file)
-        try:
-            if os.path.isfile(file_path):
-                os.unlink(file_path)
-        except Exception as e:
-            pass
 
 
 def dayClock():
@@ -44,14 +41,15 @@ def dayClock():
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
-        with open('playlist.pls', 'a', encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + absoluteFileName + '</location></track>' + '\n')
+        with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
+            playlist.write('<track><location>' + absoluteFileName + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
             os.chdir(day)
             try:
                 sftp.get(localFilename)
+                os.rename(localFilename, localFilename + '.tmp')
             except IOError:
                 pass
 
@@ -70,13 +68,14 @@ def morningClock():
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation) 
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + absoluteFileName + '</location></track>' + '\n')
+            playlist.write('<track><location>' + absoluteFileName + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
             os.chdir(morning)
             try:
                 sftp.get(localFilename)
+                os.rename(localFilename, localFilename + '.tmp')
             except IOError:
                 pass
 
@@ -84,7 +83,7 @@ def morningClock():
 def commercialsClock():
     cursor.execute("SELECT songName, attribute, fileLocation FROM commercialsDBFileLocation WHERE attribute = 'commercial' ORDER BY RAND() LIMIT 2")
     data = cursor.fetchall()
-    sftp.cwd('/media/videos/commercials')
+    sftp.cwd('/media/videos/morning') ###PROMIJENITI U COMMERCIALS FOLDER
     cwd = os.getcwd()
     currentPath = (os.path.relpath(cwd))
     os.chdir(commercials)
@@ -95,14 +94,15 @@ def commercialsClock():
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
-        with open('commercials.pls', 'a', encoding='utf-8') as commercialsList:
-            commercialsList.write('<track><location>' + absoluteFileName + '</location></track>' + '\n')
+        with open('commercials.pls', 'a',  encoding='utf-8') as commercialsList:
+            commercialsList.write('<track><location>' + absoluteFileName + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
             os.chdir(commercials)
             try:
                 sftp.get(localFilename)
+                os.rename(localFilename, localFilename + '.tmp')
             except IOError:
                 pass
 
@@ -130,6 +130,29 @@ def insertCommercials():
         outfile.write('</trackList></playlist>')
 
 
+def ffmpegConvert():
+        subprocess.call('./ffmpeg.sh')
+
+
+def deleteVideoFiles(folder):
+    for file in os.listdir(folder):
+        filePath = os.path.join(folder, file)
+        try:
+            if os.path.isfile(filePath):
+                os.unlink(filePath)
+        except Exception as e:
+            pass
+
+
+def deleteTempFiles(folder):
+    for file in os.listdir(folder):
+        filePath = os.path.join(folder, file)
+        try:
+            if file.endswith('.tmp'):
+                if os.path.isfile(filePath):
+                    os.unlink(filePath)
+        except Exception as e:
+            pass
 
 
 def playlist():
@@ -143,6 +166,10 @@ def playlist():
     dayClock()
     commercialsClock()
     insertCommercials()
-
+    ffmpegConvert()
+    time.sleep(3)
+    deleteTempFiles(morning)
+    deleteTempFiles(day)
+    deleteTempFiles(commercials)
 
 playlist()

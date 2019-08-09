@@ -1,1 +1,1 @@
-<track><location>C:\Users\lukab.SOONIK2\PycharmProjects\videoPlayer_old/video/morning/Babybird - You're Gorgeous</location></track>
+<track><location>/home/videostream/PycharmProjects/videoPlayer_old/video/morning/Alphaville - Big in Japan.mp4</location></track>

@@ -23,15 +23,15 @@ client.register(on_switch, events.SwitchScenes)
 
 def scene():
     try:
-        client.call(requests.SetCurrentScene('Scene'))
-        time.sleep(2)
+        client.call(requests.SetCurrentScene('scene'))
+        time.sleep(1)
     except KeyboardInterrupt:
         pass
 
 def scene2():
     try:
         client.call(requests.SetCurrentScene('scene2'))
-        time.sleep(2)
+        time.sleep(6)
     except KeyboardInterrupt:
         pass
 
