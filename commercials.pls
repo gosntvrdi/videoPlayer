@@ -1,1 +1,1 @@
-<track><location>/home/mirko/PycharmProjects/videoPlayer_old/video/morning/Alphaville - Big in Japan.mp4</location></track>
+<track><location>/home/vlc/video/morning/Alphaville - Big in Japan.mp4</location></track>

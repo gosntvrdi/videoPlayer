@@ -34,7 +34,7 @@ if not os.path.exists(commercials):
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 1")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 2")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -48,7 +48,7 @@ def dayClock():
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + absoluteFileName + '.mp4' + '</location></track>' + '\n')
+            playlist.write('<track><location>' + '/home/vlc' + fileLocation + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -60,7 +60,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 1")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 2")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -72,9 +72,9 @@ def morningClock():
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
-        absoluteFileName = os.path.join(absolute + fileLocation) 
+        absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + absoluteFileName + '.mp4' + '</location></track>' + '\n')
+            playlist.write('<track><location>' + '/home/vlc' + fileLocation + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -101,7 +101,7 @@ def commercialsClock():
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('commercials.pls', 'a',  encoding='utf-8') as commercialsList:
-            commercialsList.write('<track><location>' + absoluteFileName + '.mp4' + '</location></track>' + '\n')
+            commercialsList.write('<track><location>' + '/home/vlc' + fileLocation + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
