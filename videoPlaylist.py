@@ -25,12 +25,6 @@ morning = dirname + '/video/morning'
 day = dirname + '/video/day'
 commercials = dirname + '/video/commercials'
 
-if not os.path.exists(morning):
-    os.makedirs(morning)
-if not os.path.exists(day):
-    os.makedirs(day)
-if not os.path.exists(commercials):
-    os.makedirs(commercials)
 
 
 def dayClock():

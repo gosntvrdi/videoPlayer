@@ -1,9 +1,0 @@
-{
-    "settings": {
-        "bwtest": false,
-        "key": "videostream",
-        "server": "rtmp://142.93.129.123:32801/live/",
-        "use_auth": false
-    },
-    "type": "rtmp_custom"
-}
