@@ -1,4 +1,2 @@
-<track><location>/home/vlc/video/morning/Bruce Springsteen - The River - Greatest Hits.mp4</location></track>
-<track><location>/home/vlc/video/morning/Total Contrast - Takes a little time.mp4</location></track>
-<track><location>/home/vlc/video/day/Dave Stewart - Jack Talking.mp4</location></track>
-<track><location>/home/vlc/video/day/Liam Gallagher - Greedy Soul.mp4</location></track>
+C:\Users\Mirko\PycharmProjects\videoPlayer_old\video\morning/JOSS STONE - SUPER DUPER LOVE (ARE YOU DIGGIN' ON ME).mp4
+C:\Users\Mirko\PycharmProjects\videoPlayer_old\video\day/Rag'n'Bone Man - Grace (We All Try).mp4

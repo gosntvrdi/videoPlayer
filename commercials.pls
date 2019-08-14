@@ -1,1 +1,1 @@
-<track><location>/home/vlc/video/morning/Alphaville - Big in Japan.mp4</location></track>
+C:\Users\Mirko\PycharmProjects\videoPlayer_old\video\commercials/reklama1.mp4

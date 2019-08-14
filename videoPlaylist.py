@@ -1,4 +1,3 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
 import os
 import signal
 import subprocess
@@ -29,7 +28,7 @@ playlistFolder = absolute + '/video/'
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 2")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 1")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -43,7 +42,8 @@ def dayClock():
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
+            # playlist.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
+            playlist.write((r'C:\Users\Mirko\PycharmProjects\videoPlayer_old\video\day/') + song + '.mp4' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -55,7 +55,7 @@ def dayClock():
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 2")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 1")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -69,7 +69,8 @@ def morningClock():
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
+            # playlist.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
+            playlist.write((r'C:\Users\Mirko\PycharmProjects\videoPlayer_old\video\morning/') + song + '.mp4' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -82,7 +83,7 @@ def morningClock():
 
 
 def commercialsClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM commercialsDBFileLocation WHERE attribute = 'commercial' ORDER BY RAND() LIMIT 2")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM commercialsDBFileLocation WHERE attribute = 'commercial' ORDER BY RAND() LIMIT 1")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning') ###PROMIJENITI U COMMERCIALS FOLDER
     cwd = os.getcwd()
@@ -96,7 +97,8 @@ def commercialsClock():
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('commercials.pls', 'a',  encoding='utf-8') as commercialsList:
-            commercialsList.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
+            # commercialsList.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
+            commercialsList.write((r'C:\Users\Mirko\PycharmProjects\videoPlayer_old\video\commercials/') + song + '.mp4' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -113,7 +115,7 @@ def deletePlaylist():
     open('playlist.pls', 'w').close()
     open('commercials.pls', 'w').close()
     try:
-        os.remove(playlistFolder + 'playlistWithCommercials.xspf')
+        os.remove(playlistFolder + 'playlistWithCommercials.m3u')
     except FileNotFoundError:
         pass
 
@@ -123,12 +125,10 @@ def insertCommercials():
     commercialsList = [word.strip('\n').split(',') for word in open("commercials.pls", 'r').readlines()]
     playlistWithCommercials = [x for y in (playlistList[i:i + 6] + commercialsList * (i < len(playlistList) - 6) for i in range(0, len(playlistList), 6)) for x in y]
     print(playlistWithCommercials)
-    with open(playlistFolder + 'playlistWithCommercials.xspf', 'a', encoding='utf-8') as outfile:
-        outfile.write('<playlist version="1" xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/"><title>Playlist</title><trackList>' + '\n')
+    with open(playlistFolder + 'playlistWithCommercials.m3u', 'a', encoding='utf-8') as outfile:
         for s in playlistWithCommercials:
             for line in s:
                 outfile.write(str(line) + '\n')
-        outfile.write('</trackList></playlist>')
 
 
 def ffmpegConvert():
@@ -176,5 +176,3 @@ def playlist():
 
 playlist()
 
-#scheduler = BlockingScheduler()
-#scheduler.add_job(playlist, trigger='cron', hour='11', minute='50')
