@@ -1,3 +1,4 @@
+from apscheduler.schedulers.blocking import BlockingScheduler
 import os
 import signal
 import subprocess
@@ -21,10 +22,10 @@ conn = pymysql.connect(host='142.93.129.123', port=8000, user='root', password='
 cursor = conn.cursor()
 
 
-morning = dirname + '/video/morning'
-day = dirname + '/video/day'
-commercials = dirname + '/video/commercials'
-
+morning = absolute + '/video/morning'
+day = absolute + '/video/day'
+commercials = absolute + '/video/commercials'
+playlistFolder = absolute + '/video/'
 
 
 def dayClock():
@@ -35,14 +36,14 @@ def dayClock():
     currentPath = (os.path.relpath(cwd))
     os.chdir(day)
     for x in data:
-        os.chdir(dirname)
+        os.chdir(absolute)
         song = x[0]
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + '/home/vlc' + fileLocation + '.mp4' + '</location></track>' + '\n')
+            playlist.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -61,14 +62,14 @@ def morningClock():
     currentPath = (os.path.relpath(cwd))
     os.chdir(morning)
     for x in data:
-        os.chdir(dirname)
+        os.chdir(absolute)
         song = x[0]
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('playlist.pls', 'a',  encoding='utf-8') as playlist:
-            playlist.write('<track><location>' + '/home/vlc' + fileLocation + '.mp4' + '</location></track>' + '\n')
+            playlist.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -88,14 +89,14 @@ def commercialsClock():
     currentPath = (os.path.relpath(cwd))
     os.chdir(commercials)
     for x in data:
-        os.chdir(dirname)
+        os.chdir(absolute)
         song = x[0]
         attribute = x[1]
         fileLocation = (x[2])
         print(song + ", '" + attribute + "'" + ', ' + fileLocation)
         absoluteFileName = os.path.join(absolute + fileLocation)
         with open('commercials.pls', 'a',  encoding='utf-8') as commercialsList:
-            commercialsList.write('<track><location>' + '/home/vlc' + fileLocation + '.mp4' + '</location></track>' + '\n')
+            commercialsList.write('<track><location>' + absolute + fileLocation + '.mp4' + '</location></track>' + '\n')
             localFilename = os.path.join(currentPath + fileLocation)
             localFilename = (localFilename[1:])
             localFilename = (os.path.basename(fileLocation))
@@ -108,21 +109,21 @@ def commercialsClock():
 
 
 def deletePlaylist():
-    os.chdir(dirname)
+    os.chdir(absolute)
     open('playlist.pls', 'w').close()
     open('commercials.pls', 'w').close()
     try:
-        os.remove('playlistWithCommercials.xspf')
+        os.remove(playlistFolder + 'playlistWithCommercials.xspf')
     except FileNotFoundError:
         pass
 
 def insertCommercials():
-    os.chdir(dirname)
+    os.chdir(absolute)
     playlistList = [word.strip('\n').split(',') for word in open("playlist.pls", 'r').readlines()]
     commercialsList = [word.strip('\n').split(',') for word in open("commercials.pls", 'r').readlines()]
     playlistWithCommercials = [x for y in (playlistList[i:i + 6] + commercialsList * (i < len(playlistList) - 6) for i in range(0, len(playlistList), 6)) for x in y]
     print(playlistWithCommercials)
-    with open('playlistWithCommercials.xspf', 'a', encoding='utf-8') as outfile:
+    with open(playlistFolder + 'playlistWithCommercials.xspf', 'a', encoding='utf-8') as outfile:
         outfile.write('<playlist version="1" xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/"><title>Playlist</title><trackList>' + '\n')
         for s in playlistWithCommercials:
             for line in s:
@@ -131,7 +132,8 @@ def insertCommercials():
 
 
 def ffmpegConvert():
-        subprocess.call('./ffmpeg.sh')
+    os.chdir(absolute)
+    subprocess.call('./ffmpeg.sh')
 
 
 def deleteVideoFiles(folder):
@@ -173,3 +175,6 @@ def playlist():
     deleteTempFiles(commercials)
 
 playlist()
+
+#scheduler = BlockingScheduler()
+#scheduler.add_job(playlist, trigger='cron', hour='11', minute='50')
