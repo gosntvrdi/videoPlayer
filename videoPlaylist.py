@@ -28,7 +28,7 @@ playlistFolder = absolute + '/video/'
 
 
 def dayClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 1")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'day' ORDER BY RAND() LIMIT 10")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/day')
     cwd = os.getcwd()
@@ -49,13 +49,17 @@ def dayClock():
             localFilename = (os.path.basename(fileLocation))
             os.chdir(day)
             try:
-                sftp.get(localFilename)
-                os.rename(localFilename, localFilename + '.tmp')
+                if os.path.isfile(localFilename + '.mp4'):
+                    print('Song already downloaded.')
+                    continue
+                else:
+                    sftp.get(localFilename)
+                    os.rename(localFilename, localFilename + '.tmp')
             except IOError:
                 pass
 
 def morningClock():
-    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 1")
+    cursor.execute("SELECT songName, attribute, fileLocation FROM songsDBFileLocation WHERE attribute = 'morning' ORDER BY RAND() LIMIT 10")
     data = cursor.fetchall()
     sftp.cwd('/media/videos/morning')
     cwd = os.getcwd()
@@ -76,8 +80,12 @@ def morningClock():
             localFilename = (os.path.basename(fileLocation))
             os.chdir(morning)
             try:
-                sftp.get(localFilename)
-                os.rename(localFilename, localFilename + '.tmp')
+                if os.path.isfile(localFilename + '.mp4'):
+                    print('Song already downloaded.')
+                    continue
+                else:
+                    sftp.get(localFilename)
+                    os.rename(localFilename, localFilename + '.tmp')
             except IOError:
                 pass
 
@@ -104,8 +112,12 @@ def commercialsClock():
             localFilename = (os.path.basename(fileLocation))
             os.chdir(commercials)
             try:
-                sftp.get(localFilename)
-                os.rename(localFilename, localFilename + '.tmp')
+                if os.path.isfile(localFilename + '.mp4'):
+                    print('Song already downloaded.')
+                    continue
+                else:
+                    sftp.get(localFilename)
+                    os.rename(localFilename, localFilename + '.tmp')
             except IOError:
                 pass
 
@@ -162,9 +174,9 @@ def playlist():
     deleteVideoFiles(morning)
     deleteVideoFiles(day)
     deleteVideoFiles(commercials)
-    #for _ in range(12):
+    #for _ in range(30):
     morningClock()
-    #for _ in range(24):
+    #for _ in range(30):
     dayClock()
     commercialsClock()
     insertCommercials()
