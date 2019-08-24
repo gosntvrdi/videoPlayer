@@ -171,13 +171,13 @@ def deleteTempFiles(folder):
 
 def playlist():
     deletePlaylist()
-    deleteVideoFiles(morning)
-    deleteVideoFiles(day)
-    deleteVideoFiles(commercials)
-    #for _ in range(30):
-    morningClock()
-    #for _ in range(30):
-    dayClock()
+    #deleteVideoFiles(morning)
+    #deleteVideoFiles(day)
+    #deleteVideoFiles(commercials)
+    for _ in range(100):
+        morningClock()
+    for _ in range(100):
+        dayClock()
     commercialsClock()
     insertCommercials()
     ffmpegConvert()
