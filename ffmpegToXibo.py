@@ -85,8 +85,11 @@ def convertFFmpeg():
                            (mediaId, songXibo, 'video', duration, songXibo, songXibo, md5, fileSize, 1, 0, 0, 0, 0, 1, 0, 1, 'NULL', timestamp, timestamp))
         cursorConnXiboSQL.execute("SELECT lkTagMediaId, tagId, mediaId FROM lktagmedia")
         xiboLkTagMedia = cursorConnXiboSQL.fetchall()
-        lkTagMediaId = max(xiboLkTagMedia, key=itemgetter(0))[0]
-        lkTagMediaId = lkTagMediaId + 1
+        try:
+            lkTagMediaId = max(xiboLkTagMedia, key=itemgetter(0))[0]
+            lkTagMediaId = lkTagMediaId + 1
+        except ValueError:
+            lkTagMediaId = 1
         cursorConnXiboSQL.execute("""INSERT INTO lktagmedia (lkTagMediaId, tagId, mediaId)
                             VALUES (%s, %s, %s)""",
                            (lkTagMediaId, tagId, mediaId))
