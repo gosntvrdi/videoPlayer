@@ -24,7 +24,7 @@ xiboSQL = "172.18.0.2"
 
 
 connVideoFileToDBSQL = pymysql.connect(host=videoFileToDBSQL, port=3306, user='root', password='mihica.909', database='songsDB')
-connXiboSQL = pymysql.connect(host=xiboSQL, port=3306, user='cms', password='mihica.909', database='cms')
+connXiboSQL = pymysql.connect(host=xiboSQL, port=3306, user='cms', password='ge%tvB7h@9UW', database='cms')
 
 cursorConnVideoFileToDBSQL = connVideoFileToDBSQL.cursor()
 cursorConnXiboSQL = connXiboSQL.cursor()
