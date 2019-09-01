@@ -42,9 +42,9 @@ def convertFFmpeg():
         song = x[0]
         attribute = x[1]
         if attribute == 'morning':
-            tagId = 7
+            tagId = 6
         else:
-            tagId = 8
+            tagId = 7
         fileLocation = (x[2])
         metadata = FFProbe(fileLocation)
         fileSize = os.stat(fileLocation).st_size
@@ -58,10 +58,10 @@ def convertFFmpeg():
         copyfile((fileLocation), ('/app' + fileLocation + '.tmp'))
         subprocess.call('./ffmpegContainer.sh')
         os.remove(('/app' + fileLocation + '.tmp'))
+        shutil.move(('/app' + fileLocation + '.mp4'), ('/xiboLibrary/' + 'SUBMARINE-'+ song + '.mp4'))
         cursorConnVideoFileToDBSQL.execute("""INSERT INTO songsDBFileLocation (songName, attribute, fileLocation, submarine) VALUES (%s, %s, %s, %s)
                            ON DUPLICATE KEY UPDATE submarine = '1'""",
                        (song, attribute, fileLocation, '1'))
-        shutil.move(('/app' + fileLocation + '.mp4'), ('/xiboLibrary/' + 'SUBMARINE-'+ song + '.mp4'))
         print(song + ' converted and moved to ' + ('/xiboLibrary/' 'SUBMARINE-'+ song + '.mp4'))
         connVideoFileToDBSQL.commit()
 
@@ -145,10 +145,10 @@ convertFFmpeg()
 # payload = “------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“files”; filename=“C:\test.JPG”\r\nContent-Type: image/jpeg\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“name”\r\n\r\nCTV_Sendung\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“oldMediaId”\r\n\r\n156\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“updateInLayouts”\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“deleteOldRevisions”\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW–”
 #
 # headers = {
-# ‘content-type’: “multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW”,
-# ‘Cache-Control’: “no-cache”,
-# ‘Content-Type’: “application/json”,
-# ‘Postman-Token’: “a7c524e4-dac6-442c-8387-f9c7605cd1a8”,
+# 'content-type': “multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW”,
+# 'Cache-Control': “no-cache”,
+# 'Content-Type': “application/json”,
+# 'Postman-Token': “a7c524e4-dac6-442c-8387-f9c7605cd1a8”,
 # }
 #
 # response = requests.request(“POST”, url1, data=payload, headers=headers)
@@ -194,10 +194,10 @@ convertFFmpeg()
 # payload = “------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“files”; filename=“C:\test.JPG”\r\nContent-Type: image/jpeg\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“name”\r\n\r\nCTV_Sendung\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“oldMediaId”\r\n\r\n156\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“updateInLayouts”\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=“deleteOldRevisions”\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW–”
 #
 # headers = {
-# ‘content-type’: “multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW”,
-# ‘Cache-Control’: “no-cache”,
-# ‘Content-Type’: “application/json”,
-# ‘Postman-Token’: “a7c524e4-dac6-442c-8387-f9c7605cd1a8”,
+# 'content-type': “multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW”,
+# 'Cache-Control': “no-cache”,
+# 'Content-Type': “application/json”,
+# 'Postman-Token': “a7c524e4-dac6-442c-8387-f9c7605cd1a8”,
 # }
 #
 # response = requests.request(“POST”, url1, data=payload, headers=headers)
