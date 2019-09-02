@@ -23,25 +23,48 @@ print ('Bearer ' + tokens['access_token'])
 
 import requests
 
-url = "http://142.93.129.123:7000/api/library"
+url = "http://142.93.129.123:7000/api/layout/publish/36"
 
-payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"files\"; filename=\"C:/Users/lukab.SOONIK2/PycharmProjects/videoPlayer_old2/app/videos/morning/SUBMARINE-Aaron Neville featuring Robbie Robertson - Crazy Love.mp4\"\r\nContent-Type: video/mp4\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nnesto\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"updateInLayouts\"\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"layoutId\"\r\n\r\n24\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"downloadRequired\"\r\n\r\ntrue\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"changeMode\"\r\n\r\nqueue\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
 headers = {
     'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
-    'Authorization': "Bearer B6u3nmy2xCXnlS48kidGSfdsRueSVrRkvthCSsGe",
+    'Authorization': "Bearer 99TzhK4iS000CCiotqGcAxq7ZWBS86tyZqQfeK74",
     'User-Agent': "PostmanRuntime/7.15.2",
     'Accept': "*/*",
     'Cache-Control': "no-cache",
-    'Postman-Token': "498a27cb-3855-4bb9-a030-9892464c74a9,6527056c-ac52-4f54-a7ca-e8b92b5af5cc",
+    'Postman-Token': "c243698b-2485-46b3-aa70-41a183292742,5ee6002d-0bf9-4987-98ee-beece84d0cbd",
     'Host': "142.93.129.123:7000",
     'Cookie': "PHPSESSID=fv8b4h5470lohu7b7nb5kjkpps",
     'Accept-Encoding': "gzip, deflate",
-    'Content-Type': "multipart/form-data; boundary=--------------------------319929371879600350995198",
-    'Content-Length': "4454011",
+    'Content-Type': "multipart/form-data; boundary=--------------------------043169685718713921615634",
+    'Content-Length': "398",
     'Connection': "keep-alive",
     'cache-control': "no-cache"
     }
 
-response = requests.request("POST", url, data=payload, headers=headers)
+response = requests.request("PUT", url, data=payload, headers=headers)
+
+
+
+url = "http://142.93.129.123:7000/api/layout/checkout/36"
+
+payload = "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"layoutId\"\r\n\r\n24\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"downloadRequired\"\r\n\r\ntrue\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"changeMode\"\r\n\r\nqueue\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--"
+headers = {
+    'content-type': "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+    'Authorization': "Bearer 99TzhK4iS000CCiotqGcAxq7ZWBS86tyZqQfeK74",
+    'User-Agent': "PostmanRuntime/7.15.2",
+    'Accept': "*/*",
+    'Cache-Control': "no-cache",
+    'Postman-Token': "c243698b-2485-46b3-aa70-41a183292742,306dc17b-54d0-4a69-b812-739f6996b065",
+    'Host': "142.93.129.123:7000",
+    'Cookie': "PHPSESSID=fv8b4h5470lohu7b7nb5kjkpps",
+    'Accept-Encoding': "gzip, deflate",
+    'Content-Type': "multipart/form-data; boundary=--------------------------043169685718713921615634",
+    'Content-Length': "398",
+    'Connection': "keep-alive",
+    'cache-control': "no-cache"
+    }
+
+response = requests.request("PUT", url, data=payload, headers=headers)
 
 print(response.text)
